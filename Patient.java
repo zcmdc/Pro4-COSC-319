@@ -3,10 +3,13 @@ class Patient{
     private int patientId;
     private String patientName;
     private ArrayList<String> medications = new ArrayList<>();
+    private String patientDOB;
 
-    public Patient(String name, int id){
+    public Patient(String name, String dob){
         this.patientName = name;
-        this.patientId = id; 
+        this.patientId = 12345; 
+        this.medications = null;
+        this.patientDOB = dob;
     }
 
     public int getId(){
