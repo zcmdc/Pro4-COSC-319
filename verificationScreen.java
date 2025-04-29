@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class loginScreen {
     public static void main(String[] args) {
@@ -58,7 +60,30 @@ public class loginScreen {
         submitButton.setBounds(buttonX, buttonY, buttonWidth, componentHeight);
         frame.add(submitButton);
 
+        //Get the patient id from the user
+        idField.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String patientId = idField.getText();
+            }
+        });
+        
+        //Get the medication id from the user
+        medField.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                String medicationId = idField.getText();
+            }
+        });
+
+        //if(Patient.getId() == patientId && medication.getId() == medicationId){
+            //success screen
+        //}else{
+            //failure screen
+        //}
+
         // Make the frame visible
         frame.setVisible(true);
+
     }
 }
