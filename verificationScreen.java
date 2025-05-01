@@ -1,8 +1,7 @@
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
-public class loginScreen {
+public class verificationScreen {
     public static void main(String[] args) {
         // Create the frame
         JFrame frame = new JFrame("Verifcation Screen");
@@ -60,27 +59,21 @@ public class loginScreen {
         submitButton.setBounds(buttonX, buttonY, buttonWidth, componentHeight);
         frame.add(submitButton);
 
-        //Get the patient id from the user
-        idField.addActionListener(new ActionListener(){
+
+        submitButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                String patientId = idField.getText();
+            int patientId = Integer.parseInt(idField.getText());
+            int medicineId = Integer.parseInt(medField.getText());
+
+            if(patientId == 12345 && medicineId == 365){
+                JOptionPane.showMessageDialog(frame,"Scan Successful");
+            }else{
+                JOptionPane.showMessageDialog(frame,"Scan Failed. Please scan again.");
             }
+        }
         });
         
-        //Get the medication id from the user
-        medField.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                String medicationId = idField.getText();
-            }
-        });
-
-        //if(Patient.getId() == patientId && medication.getId() == medicationId){
-            //success screen
-        //}else{
-            //failure screen
-        //}
 
         // Make the frame visible
         frame.setVisible(true);
