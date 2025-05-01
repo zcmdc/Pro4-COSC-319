@@ -4,7 +4,7 @@ import javax.swing.*;
 public class verificationScreen {
     public static void main(String[] args) {
         // Create the frame
-        JFrame frame = new JFrame("Verifcation Screen");
+        JFrame frame = new JFrame("Verification Screen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 500);
         frame.setLayout(null); // Using null layout for absolute positioning
@@ -59,24 +59,28 @@ public class verificationScreen {
         submitButton.setBounds(buttonX, buttonY, buttonWidth, componentHeight);
         frame.add(submitButton);
 
-
-        submitButton.addActionListener(new ActionListener(){
+        // Add action listener to the submit button
+        submitButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
-            int patientId = Integer.parseInt(idField.getText());
-            int medicineId = Integer.parseInt(medField.getText());
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    int patientId = Integer.parseInt(idField.getText());
+                    int medicineId = Integer.parseInt(medField.getText());
 
-            if(patientId == 12345 && medicineId == 319){
-                JOptionPane.showMessageDialog(frame,"Scan Successful");
-            }else{
-                JOptionPane.showMessageDialog(frame,"Scan Failed. Please scan again.");
+                    if (patientId == 12345 && medicineId == 365) {
+                        JOptionPane.showMessageDialog(frame, "Scan Successful");
+                        frame.dispose(); // Close the verification screen
+                        doctorScreen.main(null); // Return to the doctor screen
+                    } else {
+                        JOptionPane.showMessageDialog(frame, "Scan Failed. Please scan again.");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(frame, "Invalid input. Please enter numeric values.");
+                }
             }
-        }
         });
-        
 
         // Make the frame visible
         frame.setVisible(true);
-
     }
 }

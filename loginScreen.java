@@ -1,7 +1,13 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class loginScreen {
     public static void main(String[] args) {
+        // Hardcoded credentials
+        final String correctID = "admin";
+        final String correctPassword = "password123";
+
         // Create the frame
         JFrame frame = new JFrame("Mops System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,6 +63,23 @@ public class loginScreen {
         int buttonX = (frameWidth - buttonWidth) / 2; // Center the button horizontally
         submitButton.setBounds(buttonX, buttonY, buttonWidth, componentHeight);
         frame.add(submitButton);
+
+        // Add action listener to the submit button
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String enteredID = idField.getText();
+                String enteredPassword = new String(passwordField.getPassword());
+
+                // Validate credentials
+                if (enteredID.equals(correctID) && enteredPassword.equals(correctPassword)) {
+                    frame.dispose(); // Close the login screen
+                    doctorScreen.main(null); // Open the doctor screen
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Invalid ID or Password. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
 
         // Make the frame visible
         frame.setVisible(true);
