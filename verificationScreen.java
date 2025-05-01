@@ -67,7 +67,7 @@ public class verificationScreen {
                     int patientId = Integer.parseInt(idField.getText());
                     int medicineId = Integer.parseInt(medField.getText());
 
-                    if (patientId == 12345 && medicineId == 365) {
+                    if (patientId == 12345 && medicineId == 319) {
                         JOptionPane.showMessageDialog(frame, "Scan Successful");
                         frame.dispose(); // Close the verification screen
                         doctorScreen.main(null); // Return to the doctor screen

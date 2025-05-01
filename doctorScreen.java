@@ -78,7 +78,7 @@ public class doctorScreen {
                 dobField.setBounds(150, 100, 200, 30);
                 addPatientFrame.add(dobField);
 
-                JLabel symptomsLabel = new JLabel("Symptoms/Illness:");
+                JLabel symptomsLabel = new JLabel("Symptoms:");
                 symptomsLabel.setBounds(50, 150, 100, 30);
                 addPatientFrame.add(symptomsLabel);
 
