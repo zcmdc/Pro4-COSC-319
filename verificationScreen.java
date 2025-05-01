@@ -66,7 +66,7 @@ public class verificationScreen {
             int patientId = Integer.parseInt(idField.getText());
             int medicineId = Integer.parseInt(medField.getText());
 
-            if(patientId == 12345 && medicineId == 365){
+            if(patientId == 12345 && medicineId == 319){
                 JOptionPane.showMessageDialog(frame,"Scan Successful");
             }else{
                 JOptionPane.showMessageDialog(frame,"Scan Failed. Please scan again.");
